@@ -20,9 +20,9 @@ return new class extends Migration
         });
 
         DB::table('roles')->insert([
-            ['name' => 'Admin', 'description' => 'Administrator with full access debug dll', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Boss', 'description' => 'Client butuh lihat performa perusahaan', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Pegawai', 'description' => 'Regular user with limited access', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Admin', 'description' => 'Administrator with full access debug dll', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Boss', 'description' => 'Client butuh lihat performa perusahaan', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Pegawai', 'description' => 'Regular user with limited access', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 

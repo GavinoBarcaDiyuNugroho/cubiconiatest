@@ -11,9 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Tambahan logs kalau sempet
         Schema::create('audit_logs', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamp('created_at');
+            // foreign key to users table 
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->string('action', 100); 
+            $table->string('model_type', 100)->nullable();
+            $table->unsignedBigInteger('model_id')->nullable();
+            $table->json('old_values')->nullable();
+            $table->json('new_values')->nullable();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+
+            // Indexes
+            $table->index('user_id');
+            $table->index('action');
+            $table->index('created_at');
+            $table->index(['model_type', 'model_id']);
+
         });
     }
 
